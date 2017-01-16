@@ -6,10 +6,10 @@ module Ruboty
           JIRA::Client.new(
           username: username,
           password: password,
-          site: config.site,
-          context_path: config.context,
+          site: site,
+          context_path: context,
           auth_type: :basic,
-          use_ssl: config.use_ssl
+          use_ssl: true
           )
         end
 
@@ -26,12 +26,21 @@ module Ruboty
         end
 
         def context
-          ENV["JIRA_CONTEXT_PATH"]
+          ENV["JIRA_CONTEXT_PATH"] || ''
         end
 
         def memory
           message.robot.brain.data[Ruboty::Jira::NAME_SPACE] ||= {}
         end
+
+        def fetch_project(key)
+          client.Project.find(key)
+        rescue => e
+          Ruboty.logger.error e
+          Ruboty.logger.info('JIRA HTTPError')
+          nil
+        end
+
       end
     end
   end
