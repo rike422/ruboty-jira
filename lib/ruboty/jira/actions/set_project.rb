@@ -13,7 +13,7 @@ module Ruboty
 
         private
         def set_project
-          @project = fetch_project(project_key)
+          @project = find_project(project_key)
           memory[message.to] = project.id unless project.nil?
         end
 
