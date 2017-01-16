@@ -11,6 +11,5 @@ require "ruboty/jira/actions/set_project"
 module Ruboty
   module Jira
     NAME_SPACE = 'ruboty-jira'
-    # Your code goes here...
   end
 end

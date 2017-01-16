@@ -1,7 +1,7 @@
 module Ruboty
   module Jira
     module Actions
-      class Issue_detail < Base
+      class IssueDetail < Base
         def call
           message.reply(issue_detail)
         rescue => e
@@ -10,7 +10,8 @@ module Ruboty
 
         private
         def issue_detail
-          # TODO: main logic
+          issue = find_issue(message[:issue])
+          return issue.summary unless issue.nil?
         end
       end
     end
