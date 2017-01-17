@@ -58,14 +58,13 @@ module Ruboty
           client.Project.find(key)
         rescue => e
           Ruboty.logger.error e
-          Ruboty.logger.info('JIRA HTTPError')
           nil
         end
 
         def find_issue(key)
           client.Issue.find(key)
-        rescue
-          log.error('JIRA HTTPError') if expected
+        rescue => e
+          Ruboty.logger.error e
           nil
         end
 
