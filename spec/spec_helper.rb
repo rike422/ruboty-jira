@@ -1,6 +1,6 @@
-$LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
-require "ruboty/jira"
-
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+require 'ruboty'
+require 'ruboty/jira'
 
 ENV['JIRA_USERNAME'] = 'akira.takahashi'
 ENV['JIRA_PASSWORD'] = '******'
