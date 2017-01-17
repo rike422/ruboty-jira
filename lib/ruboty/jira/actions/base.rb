@@ -68,7 +68,7 @@ module Ruboty
           nil
         end
 
-        def quey_issues(jql)
+        def query_issues(jql)
           client.Issue.jql(jql)
         end
       end
