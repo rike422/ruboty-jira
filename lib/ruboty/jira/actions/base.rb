@@ -37,7 +37,9 @@ module Ruboty
         end
 
         def use_ssl
-          ENV["JIRA_USE_SSL"] || true
+          value = ENV['JIRA_USE_SSL']
+          return value unless value.nil?
+          true
         end
 
         def memory
