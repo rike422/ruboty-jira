@@ -21,19 +21,19 @@ module Ruboty
         end
 
         def username
-          ENV["JIRA_USERNAME"]
+          ENV['JIRA_USERNAME']
         end
 
         def password
-          ENV["JIRA_PASSWORD"]
+          ENV['JIRA_PASSWORD']
         end
 
         def site
-          ENV["JIRA_URL"]
+          ENV['JIRA_URL']
         end
 
         def context
-          ENV["JIRA_CONTEXT_PATH"] || ''
+          ENV['JIRA_CONTEXT_PATH'] || ''
         end
 
         def use_ssl
