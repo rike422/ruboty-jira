@@ -44,6 +44,16 @@ module Ruboty
           message.robot.brain.data[Ruboty::Jira::NAME_SPACE] ||= {}
         end
 
+        def users
+          memory["USERS"] ||= {}
+        end
+
+        def associate_name
+          user = users[message.from_name]
+          return if user.nil?
+          user[:name]
+        end
+
         def find_project(key)
           client.Project.find(key)
         rescue => e

@@ -7,6 +7,7 @@ require "ruboty/jira/actions/comment"
 require "ruboty/jira/actions/issue_detail"
 require "ruboty/jira/actions/issue"
 require "ruboty/jira/actions/set_project"
+require "ruboty/jira/actions/associate_user"
 
 module Ruboty
   module Jira
