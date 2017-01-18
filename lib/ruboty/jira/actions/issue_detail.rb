@@ -9,6 +9,7 @@ module Ruboty
         end
 
         private
+
         def issue_detail
           issue = find_issue(message[:issue])
           return issue.summary unless issue.nil?

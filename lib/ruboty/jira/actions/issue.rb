@@ -9,6 +9,7 @@ module Ruboty
         end
 
         private
+
         def issue
           # TODO: main logic
         end

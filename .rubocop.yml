@@ -1,0 +1,41 @@
+AllCops:
+  Exclude:
+     - 'vendor/**/*'
+     - 'spec/fixtures/**/*'
+     - 'tmp/**/*'
+     - 'templates/**/*'
+##################### Metrics ##################################
+
+Metrics/LineLength:
+  Max: 130
+
+Metrics/ClassLength:
+  CountComments: false
+  Max: 150
+
+Metrics/LineLength:
+  Max: 150
+
+##################### Style ##################################
+
+# Use nested module/class definitions instead of compact style.
+# NG: module Gem::Search
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/DotPosition:
+  EnforcedStyle: trailing
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'rounders.gemspec'
+    - 'spec/**/*'
