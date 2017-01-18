@@ -21,7 +21,7 @@ describe Ruboty::Jira::Actions::AssociateProject do
   end
 
   let(:said) do
-    '@ruboty jira project set PRJ-MINE_100'
+    '@ruboty jira project associate PRJ-MINE_100'
   end
 
   let(:replied) do
