@@ -3,7 +3,8 @@ module Ruboty
     module Actions
       class Comment < Base
         def call
-          message.reply(comment)
+          return unless valid_user?
+          comment
         rescue => e
           message.reply(e.message)
         end
@@ -11,7 +12,19 @@ module Ruboty
         private
 
         def comment
-          # TODO: main logic
+          issue = find_issue(message[:issue])
+          return message.reply("The issue #{message[:issue]} is not found") if issue.nil?
+          comment = issue.comments.build
+          comment.save!(
+            body: format(message[:comment])
+          )
+        end
+
+        def format(message)
+          <<-"EOF"
+Commented by @#{associate_user[:name]}
+#{message}
+          EOF
         end
       end
     end

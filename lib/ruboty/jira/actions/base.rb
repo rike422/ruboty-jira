@@ -83,6 +83,24 @@ module Ruboty
         def query_issue(jql)
           client.Issue.jql(jql)
         end
+
+        def valid_project?
+          return true unless associate_project.nil?
+          message.reply <<-ERROR
+Please associate this channel with the jira project
+ex: @Botname jira project associate <project_name>
+          ERROR
+          false
+        end
+
+        def valid_user?
+          return true unless associate_user.nil?
+          message.reply <<-ERROR
+Please associate chat name with the jira account
+ex: @Botname jira user #<jira_user_name> is @<chat_name>
+          ERROR
+          false
+        end
       end
     end
   end
