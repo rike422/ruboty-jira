@@ -1,7 +1,7 @@
 module Ruboty
   module Jira
     module Actions
-      class SetProject < Base
+      class AssociateProject < Base
         attr_reader :project
 
         def call
@@ -12,7 +12,8 @@ module Ruboty
         end
 
         private
-        def set_project
+
+        def associate_project
           @project = find_project(project_key)
           memory[message.to] = project.id unless project.nil?
         end
@@ -23,7 +24,7 @@ module Ruboty
 
         def replay_message
           if project.nil?
-            "#{project_key}"
+            project_key.to_s
           else
             "set to #{project.id} is #{message.to || 'default'}"
           end

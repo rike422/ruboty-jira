@@ -4,12 +4,12 @@ module Ruboty
       class Base < Ruboty::Actions::Base
         def client
           JIRA::Client.new(
-          username: jira_username,
-          password: jira_password,
-          site: jira_site,
-          context_path: jira_context,
-          auth_type: :basic,
-          use_ssl: use_ssl
+            username: jira_username,
+            password: jira_password,
+            site: jira_site,
+            context_path: jira_context,
+            auth_type: :basic,
+            use_ssl: use_ssl
           )
         end
 
@@ -40,7 +40,7 @@ module Ruboty
         end
 
         def users
-          memory["USERS"] ||= {}
+          memory['USERS'] ||= {}
         end
 
         def associate_name
@@ -48,7 +48,7 @@ module Ruboty
           return if user.nil?
           user[:name]
         end
-        
+
         def find_project(key)
           client.Project.find(key)
         rescue => e

@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Ruboty::Jira::Actions::Base do
-
   let(:describe_class) { Ruboty::Jira::Actions::Base }
   let(:describe_instance) { describe_class.new(message) }
   let(:message) do

@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Ruboty::Jira::Actions::AssociateUser do
-
   let(:describe_class) { Ruboty::Jira::Actions::AssociateUser }
   let(:describe_instance) { describe_class.new(message) }
 
@@ -24,7 +23,6 @@ describe Ruboty::Jira::Actions::AssociateUser do
   let(:said) do
     '@ruboty jira user #jira.takahashi is @akira.takahashi'
   end
-
 
   let(:replied) do
     'Registered.'
@@ -50,11 +48,10 @@ describe Ruboty::Jira::Actions::AssociateUser do
       )
       robot.receive(body: said, from: from, to: to)
       expect(robot.brain.data[Ruboty::Jira::NAME_SPACE]['USERS']).to eq(
-        {
-          'akira.takahashi' => {
-            name: jira_name
-          }
-        })
+        'akira.takahashi' => {
+          name: jira_name
+        }
+      )
     end
     context 'when the username not exist' do
       before(:each) do

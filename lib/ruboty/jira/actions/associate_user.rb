@@ -10,6 +10,7 @@ module Ruboty
         end
 
         private
+
         def associate
           user = find_user(message[:jira_id])
           return if user.nil?
