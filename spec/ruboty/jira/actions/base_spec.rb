@@ -9,7 +9,7 @@ describe Ruboty::Jira::Actions::Base do
     }
   end
 
-  describe 'EMV' do
+  describe 'ENV' do
     let(:env_name) { 'ENV_VALUE' }
     shared_examples_for 'should be return environment variable' do
       before(:each) do

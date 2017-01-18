@@ -6,6 +6,9 @@ AllCops:
      - 'templates/**/*'
 ##################### Metrics ##################################
 
+Metrics/MethodLength:
+  Max: 30
+
 Metrics/LineLength:
   Max: 130
 

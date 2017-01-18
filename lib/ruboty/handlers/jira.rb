@@ -5,7 +5,7 @@ module Ruboty
       on(/jira project associate ?(?<project>.+)\z/,
          name: 'associate_project',
          description: 'Associate this channel with jira project')
-      # on /jira create ?(?<issue>.+)/, name: 'issue', description: 'issue'
+
       on(/jira details ?(?<issue>.+)/,
          name: 'issue_detail',
          description: 'issue')
@@ -21,6 +21,10 @@ module Ruboty
       on(/jira user #(?<jira_id>.+) is @(?<chat_name>.+)/,
          name: 'associate_user',
          description: 'Associate jira_id with chat_name')
+
+      on(/jira create (?<issue_type>\S+) (?<summary>\S+) ?(?<subject>.*)/,
+         name: 'create_issue',
+         description: 'Create issue to Jira project')
 
       env :JIRA_URL, 'https://jira-domain.com:9090'
       env :JIRA_PASSWORD, 'jira password'
