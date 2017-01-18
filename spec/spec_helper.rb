@@ -9,9 +9,10 @@ ENV['JIRA_CONTEXT_PATH'] = ''
 
 if ENV['CI']
   require 'simplecov'
-  require 'coveralls'
   require 'codeclimate-test-reporter'
-  Coveralls.wear!
-  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[Coveralls::SimpleCov::Formatter]
-  CodeClimate::TestReporter.start
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+    SimpleCov::Formatter::HTMLFormatter,
+    CodeClimate::TestReporter::Formatter
+  ]
+  SimpleCov.start
 end
