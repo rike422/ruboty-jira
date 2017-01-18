@@ -13,13 +13,6 @@ module Ruboty
           )
         end
 
-        def fetch_project(key)
-          client.Project.find(key)
-        rescue
-          log.error('JIRA HTTPError')
-          nil
-        end
-
         def jira_username
           ENV['JIRA_USERNAME']
         end
