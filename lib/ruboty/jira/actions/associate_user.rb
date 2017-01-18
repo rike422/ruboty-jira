@@ -20,8 +20,8 @@ module Ruboty
         end
 
         def reply_message
-          if associate_name.nil?
-            message.reply('The jira account name is not found')
+          if associate_user.nil?
+            message.reply("The jira account #{message[:jira_id]} is not found")
           else
             message.reply('Registered.')
           end
