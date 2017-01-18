@@ -2,11 +2,9 @@ module Ruboty
   module Jira
     module Actions
       class AssociateProject < Base
-        attr_reader :project
-
         def call
-          set_project
-          message.reply(replay_message)
+          associate_project
+          replay_message
         rescue => e
           message.reply(e.message)
         end
@@ -14,8 +12,12 @@ module Ruboty
         private
 
         def associate_project
-          @project = find_project(project_key)
-          memory[message.to] = project.id unless project.nil?
+          project = find_project(project_key)
+          return if project.nil?
+
+          projects[message.to] = {
+            id: project.id
+          }
         end
 
         def project_key
@@ -23,10 +25,10 @@ module Ruboty
         end
 
         def replay_message
-          if project.nil?
-            project_key.to_s
+          if associate_project.nil?
+            message.reply('The jira project is not found.')
           else
-            "set to #{project.id} is #{message.to || 'default'}"
+            message.reply('Registered.')
           end
         end
       end

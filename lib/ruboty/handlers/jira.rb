@@ -4,7 +4,7 @@ module Ruboty
     class Jira < Base
       on(/jira project set ?(?<project>.+)\z/,
          name: 'associate_project',
-         description: 'set project')
+         description: 'Associate this channel with jira project')
       # on /jira create ?(?<issue>.+)/, name: 'issue', description: 'issue'
       on(/jira details ?(?<issue>.+)/,
          name: 'issue_detail',
@@ -29,7 +29,7 @@ module Ruboty
       env :JIRA_USE_SSL, 'jira context path', optional: true
 
       def associate_project(message)
-        Ruboty::Jira::Actions::SetProject.new(message).call
+        Ruboty::Jira::Actions::AssociateProject.new(message).call
       end
 
       def issue(message)

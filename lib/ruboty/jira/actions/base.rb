@@ -43,10 +43,20 @@ module Ruboty
           memory['USERS'] ||= {}
         end
 
+        def projects
+          memory['PROJECTS'] ||= {}
+        end
+
         def associate_name
           user = users[message.from_name]
           return if user.nil?
           user[:name]
+        end
+
+        def associate_project
+          projct = users[message.to]
+          return if project.nil?
+          projct
         end
 
         def find_project(key)
