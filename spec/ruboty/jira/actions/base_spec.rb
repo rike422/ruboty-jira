@@ -21,25 +21,25 @@ describe Ruboty::Jira::Actions::Base do
       end
     end
     describe '#username' do
-      subject { describe_instance.username }
+      subject { describe_instance.jira_username }
       let(:env_name) { 'JIRA_USERNAME' }
       let(:value) { 'akira.takahashi' }
       it_behaves_like 'should be return environment variable'
     end
     describe '#password' do
-      subject { describe_instance.password }
+      subject { describe_instance.jira_password }
       let(:env_name) { 'JIRA_PASSWORD' }
       let(:value) { 'password' }
       it_behaves_like 'should be return environment variable'
     end
     describe '#site' do
-      subject { describe_instance.site }
+      subject { describe_instance.jira_site }
       let(:env_name) { 'JIRA_URL' }
       let(:value) { 'https://jiraurl.com//' }
       it_behaves_like 'should be return environment variable'
     end
     describe '#context' do
-      subject { describe_instance.context }
+      subject { describe_instance.jira_context }
       let(:env_name) { 'JIRA_CONTEXT_PATH' }
       let(:value) { '/test' }
       it_behaves_like 'should be return environment variable'

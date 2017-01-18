@@ -4,10 +4,10 @@ module Ruboty
       class Base < Ruboty::Actions::Base
         def client
           JIRA::Client.new(
-          username: username,
-          password: password,
-          site: site,
-          context_path: context,
+          username: jira_username,
+          password: jira_password,
+          site: jira_site,
+          context_path: jira_context,
           auth_type: :basic,
           use_ssl: use_ssl
           )
@@ -20,19 +20,19 @@ module Ruboty
           nil
         end
 
-        def username
+        def jira_username
           ENV['JIRA_USERNAME']
         end
 
-        def password
+        def jira_password
           ENV['JIRA_PASSWORD']
         end
 
-        def site
+        def jira_site
           ENV['JIRA_URL']
         end
 
-        def context
+        def jira_context
           ENV['JIRA_CONTEXT_PATH'] || ''
         end
 
@@ -55,7 +55,7 @@ module Ruboty
           return if user.nil?
           user[:name]
         end
-
+        
         def find_project(key)
           client.Project.find(key)
         rescue => e
@@ -65,6 +65,13 @@ module Ruboty
 
         def find_issue(key)
           client.Issue.find(key)
+        rescue => e
+          Ruboty.logger.error e
+          nil
+        end
+
+        def find_user(key)
+          client.User.find(key)
         rescue => e
           Ruboty.logger.error e
           nil
