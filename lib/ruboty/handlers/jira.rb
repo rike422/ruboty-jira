@@ -2,7 +2,7 @@ module Ruboty
   module Handlers
     # Ruboty jira client
     class Jira < Base
-      on(/jira project set ?(?<project>.+)\z/,
+      on(/jira project associate ?(?<project>.+)\z/,
          name: 'associate_project',
          description: 'Associate this channel with jira project')
       # on /jira create ?(?<issue>.+)/, name: 'issue', description: 'issue'

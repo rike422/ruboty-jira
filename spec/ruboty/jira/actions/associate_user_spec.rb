@@ -21,7 +21,7 @@ describe Ruboty::Jira::Actions::AssociateUser do
   end
 
   let(:said) do
-    '@ruboty jira user #jira.takahashi is @akira.takahashi'
+    "@ruboty jira user ##{jira_name} is @#{from}"
   end
 
   let(:replied) do
@@ -59,7 +59,7 @@ describe Ruboty::Jira::Actions::AssociateUser do
       end
 
       let(:replied) do
-        'The jira account name is not found'
+        "The jira account #{jira_name} is not found"
       end
 
       it 'should return error message' do

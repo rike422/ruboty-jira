@@ -47,16 +47,16 @@ module Ruboty
           memory['PROJECTS'] ||= {}
         end
 
-        def associate_name
+        def associate_user
           user = users[message.from_name]
           return if user.nil?
-          user[:name]
+          user
         end
 
         def associate_project
-          projct = users[message.to]
+          project = projects[message.to]
           return if project.nil?
-          projct
+          project
         end
 
         def find_project(key)
@@ -80,7 +80,7 @@ module Ruboty
           nil
         end
 
-        def query_issues(jql)
+        def query_issue(jql)
           client.Issue.jql(jql)
         end
       end
