@@ -10,7 +10,7 @@ module Ruboty
          name: 'issue_detail',
          description: 'issue')
 
-      on(/jira comment ?(?<issue>.+) ?(?<comment>.+) /,
+      on(/jira comment on (?<issue>\S+) (?<comment>.+)/,
          name: 'comment',
          description: 'comment to issue')
 

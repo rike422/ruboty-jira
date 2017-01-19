@@ -7,6 +7,7 @@ describe Ruboty::Jira::Actions::CreateIssue do
   let(:message) do
     {}
   end
+
   let(:project_id) do
     100
   end
