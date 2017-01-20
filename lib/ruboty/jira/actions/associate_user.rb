@@ -14,7 +14,7 @@ module Ruboty
         def associate
           user = find_user(message[:jira_id])
           return if user.nil?
-          users[message[:chat_name]] = {
+          jira_users[message[:chat_name]] = {
             name: user.name
           }
         end

@@ -39,7 +39,7 @@ module Ruboty
           message.robot.brain.data[Ruboty::Jira::NAME_SPACE] ||= {}
         end
 
-        def users
+        def jira_users
           memory['USERS'] ||= {}
         end
 
@@ -48,7 +48,7 @@ module Ruboty
         end
 
         def associate_user
-          user = users[message.from_name]
+          user = jira_users[message.from_name]
           return if user.nil?
           user
         end
