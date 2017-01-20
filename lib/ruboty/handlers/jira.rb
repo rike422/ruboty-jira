@@ -15,7 +15,8 @@ module Ruboty
          description: 'comment to issue')
 
       on(%r{#{ENV['JIRA_URL']}\/browse\/?(?<issue>.+)},
-         all: true, name: 'issue_detail',
+         all: true,
+         name: 'issue_detail',
          description: 'comment to issue')
 
       on(/jira user #(?<jira_id>.+) is @(?<chat_name>.+)/,
